@@ -365,6 +365,15 @@
 
     .contact-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
+    .proj-link {
+      margin-left: auto;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    .proj-link:hover { color: var(--blue); }
+
     /* FOOTER */
     footer {
       padding: 28px 0;
@@ -416,7 +425,7 @@
   <div class="container">
 
     <div class="hero" id="about">
-      <div class="hero-eyebrow">open to opportunities</div>
+      <div class="hero-eyebrow"> Open to Opportunities </div>
       <h1><span class="gradient">Akshar<br/>Pandey</span></h1>
       <p class="hero-sub">
         Incoming <strong>BSc Econometrics @ UvA</strong>. Building things to understand them —
@@ -451,6 +460,7 @@
           <div class="project-top">
             <div class="project-icon">📈</div>
             <span class="project-name">Monte Carlo Options Pricer</span>
+            <a href="https://github.com/AksharPandey/monte-carlo-options-pricer" target="_blank" class="proj-link">↗</a>
           </div>
           <p class="project-desc">GBM-based simulation to price European put/call options. Visualises simulated price paths. Built as a starting point — plan to rebuild after studying stochastic processes formally.</p>
           <div class="tags">
@@ -465,6 +475,7 @@
           <div class="project-top">
             <div class="project-icon">♟</div>
             <span class="project-name">Chess Engine</span>
+            <a href="https://github.com/AksharPandey/chess-bot-using-minmax-WIP" target="_blank" class="proj-link">↗</a>
           </div>
           <p class="project-desc">Minimax bot with alpha-beta pruning. Full rule implementation including en passant and castling. Achieved ~1300 rating in online play.</p>
           <div class="tags">
@@ -478,6 +489,7 @@
           <div class="project-top">
             <div class="project-icon">🃏</div>
             <span class="project-name">Poker Hand Evaluator</span>
+            <a href="https://github.com/AksharPandey/texas-holdem-hand-simulator" target="_blank" class="proj-link">↗</a>
           </div>
           <p class="project-desc">Monte Carlo equity simulator across all hand rankings. Full tiebreaker and kicker logic. 99% accuracy over 100k+ simulations.</p>
           <div class="tags">
@@ -550,7 +562,7 @@
       <p class="section-label">contact</p>
       <div class="contact-card">
         <h3>Let's connect</h3>
-        <p>Open to internships, collaborations, or just a chat about quant finance.</p>
+        <p>pandeyakshar4@gmail.com</p>
         <div class="contact-links">
           <a href="mailto:pandeyakshar4@gmail.com" class="btn btn-grad">Email me</a>
           <a href="https://github.com/AksharPandey" target="_blank" class="btn btn-glass">GitHub</a>
