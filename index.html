@@ -30,6 +30,7 @@
       overflow-x: hidden;
     }
 
+    /* Ambient blobs */
     .blob {
       position: fixed;
       border-radius: 50%;
@@ -42,6 +43,7 @@
     .blob-2 { width: 400px; height: 400px; background: var(--purple); bottom: 10%; right: -100px; }
     .blob-3 { width: 300px; height: 300px; background: var(--green); top: 50%; left: 40%; }
 
+    /* Glass mixin */
     .glass {
       background: rgba(255,255,255,0.04);
       backdrop-filter: blur(20px);
@@ -58,6 +60,7 @@
       z-index: 1;
     }
 
+    /* NAV */
     nav {
       position: sticky;
       top: 0;
@@ -91,7 +94,10 @@
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.72rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
 
-    .hero { padding: 90px 0 70px; }
+    /* HERO */
+    .hero {
+      padding: 90px 0 70px;
+    }
 
     .hero-eyebrow {
       display: inline-flex;
@@ -189,12 +195,14 @@
     }
     .btn-glass:hover { background: rgba(255,255,255,0.09); color: var(--text); }
 
+    /* DIVIDER */
     .divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
       margin: 8px 0;
     }
 
+    /* SECTION */
     section { padding: 56px 0; }
 
     .section-label {
@@ -214,6 +222,7 @@
       background: rgba(255,255,255,0.06);
     }
 
+    /* ABOUT CARD */
     .about-card {
       padding: 28px 32px;
       line-height: 2;
@@ -221,10 +230,15 @@
     }
 
     .t-row { display: flex; gap: 16px; align-items: baseline; }
-    .t-key { color: var(--purple); min-width: 90px; flex-shrink: 0; }
+    .t-key {
+      color: var(--purple);
+      min-width: 90px;
+      flex-shrink: 0;
+    }
     .t-val { color: var(--text); }
     .t-muted-line { color: var(--muted); font-size: 0.72rem; margin-top: 8px; }
 
+    /* PROJECT CARDS */
     .project-grid { display: grid; gap: 14px; }
 
     .project-card {
@@ -293,6 +307,7 @@
     .tag-green { border-color: rgba(61,232,122,0.25); color: var(--green); }
     .tag-red { border-color: rgba(255,92,58,0.25); color: var(--red); }
 
+    /* EXPERIENCE */
     .exp-list { display: grid; gap: 14px; }
 
     .exp-card {
@@ -307,6 +322,7 @@
     .exp-date { font-size: 0.68rem; color: var(--muted); grid-column: 2; grid-row: 1/3; align-self: center; }
     .exp-desc { font-size: 0.72rem; color: var(--muted); line-height: 1.6; grid-column: 1; margin-top: 8px; }
 
+    /* SKILLS */
     .skill-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
     .skill {
       font-size: 0.68rem;
@@ -319,6 +335,7 @@
     }
     .skill:hover { color: var(--text); border-color: rgba(79,143,255,0.3); background: rgba(79,143,255,0.06); }
 
+    /* CONTACT */
     .contact-card {
       padding: 32px;
       text-align: center;
@@ -340,9 +357,24 @@
       background-clip: text;
     }
 
-    .contact-card p { font-size: 0.78rem; color: var(--muted); margin-bottom: 24px; }
+    .contact-card p {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
     .contact-links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
+    .proj-link {
+      margin-left: auto;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    .proj-link:hover { color: var(--blue); }
+
+    /* FOOTER */
     footer {
       padding: 28px 0;
       text-align: center;
@@ -351,6 +383,7 @@
     }
     footer a { color: var(--blue); text-decoration: none; }
 
+    /* ANIMATIONS */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -367,130 +400,10 @@
       .nav-links { display: none; }
       .hero h1 { letter-spacing: -2px; }
     }
-
-    a.project-card { display: block; text-decoration: none; color: inherit; }
-
-    /* ── PAC-MAN WIDGET ── */
-    #pac-launcher {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 999;
-      width: 52px;
-      height: 52px;
-      background: #000;
-      border: 2px solid #FFD700;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 16px rgba(255,215,0,0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-      overflow: hidden;
-    }
-    #pac-launcher:hover {
-      transform: scale(1.12);
-      box-shadow: 0 0 28px rgba(255,215,0,0.7);
-    }
-    #pac-launcher canvas { width: 52px; height: 52px; }
-
-    #pac-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.92);
-      z-index: 1000;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    #pac-overlay.active { display: flex; }
-
-    #pac-header {
-      font-family: var(--mono);
-      color: #FFD700;
-      font-size: 0.75rem;
-      margin-bottom: 12px;
-      letter-spacing: 0.1em;
-      display: flex;
-      gap: 24px;
-      align-items: center;
-    }
-
-    #pac-canvas {
-      border: 2px solid #333;
-      image-rendering: pixelated;
-    }
-
-    #pac-close {
-      position: absolute;
-      top: 20px;
-      right: 28px;
-      color: #666;
-      font-size: 1.4rem;
-      cursor: pointer;
-      font-family: var(--mono);
-      transition: color 0.2s;
-    }
-    #pac-close:hover { color: #fff; }
-
-    #pac-message {
-      font-family: var(--mono);
-      font-size: 0.7rem;
-      color: var(--muted);
-      margin-top: 12px;
-      text-align: center;
-      min-height: 20px;
-    }
-
-    /* Section reveal panels triggered by power pellets */
-    #section-panel {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.96);
-      z-index: 1001;
-      overflow-y: auto;
-      padding: 40px 24px;
-    }
-    #section-panel.active { display: block; }
-
-    #panel-close {
-      position: fixed;
-      top: 20px;
-      right: 28px;
-      color: #666;
-      font-size: 1.4rem;
-      cursor: pointer;
-      font-family: var(--mono);
-      z-index: 1002;
-    }
-    #panel-close:hover { color: #fff; }
-
-    .panel-section {
-      max-width: 680px;
-      margin: 0 auto 40px;
-      font-family: var(--mono);
-    }
-
-    .panel-section h2 {
-      font-family: var(--display);
-      font-size: 1.4rem;
-      font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 16px;
-      color: #FFD700;
-    }
-
-    .panel-section p, .panel-section li {
-      font-size: 0.78rem;
-      color: var(--muted);
-      line-height: 1.8;
-      margin-bottom: 8px;
-    }
-
-    .panel-section a { color: var(--blue); }
+  a.project-card {
+display: block;
+text-decoration: none;
+color: inherit;}
   </style>
 </head>
 <body>
@@ -547,7 +460,7 @@
       <p class="section-label">projects</p>
       <div class="project-grid">
 
-        <a href="https://github.com/AksharPandey/monte-carlo-options-pricer" target="_blank" class="glass project-card">
+<a href="https://github.com/AksharPandey/monte-carlo-options-pricer" target="_blank" class="glass project-card" style="display:block;text-decoration:none;color:inherit;">
           <div class="project-top">
             <div class="project-icon">📈</div>
             <span class="project-name">Monte Carlo Options Pricer</span>
@@ -561,7 +474,7 @@
           </div>
         </a>
 
-        <a href="https://github.com/AksharPandey/chess-bot-using-minmax-WIP" target="_blank" class="glass project-card">
+        <a href="https://github.com/AksharPandey/chess-bot-using-minmax-WIP" target="_blank" class="glass project-card" style="display:block;text-decoration:none;color:inherit;">
           <div class="project-top">
             <div class="project-icon">♟</div>
             <span class="project-name">Chess Engine</span>
@@ -574,7 +487,7 @@
           </div>
         </a>
 
-        <a href="https://github.com/AksharPandey/texas-holdem-hand-simulator" target="_blank" class="glass project-card">
+        <a href="https://github.com/AksharPandey/texas-holdem-hand-simulator" target="_blank" class="glass project-card" style="display:block;text-decoration:none;color:inherit;">
           <div class="project-top">
             <div class="project-icon">🃏</div>
             <span class="project-name">Poker Hand Evaluator</span>
@@ -665,387 +578,11 @@
 
   </div>
 
-  <!-- PAC-MAN LAUNCHER -->
-  <div id="pac-launcher" title="Play Pac-Man">
-    <canvas id="pac-icon-canvas" width="52" height="52"></canvas>
-  </div>
-
-  <!-- PAC-MAN OVERLAY -->
-  <div id="pac-overlay">
-    <span id="pac-close">✕</span>
-    <div id="pac-header">
-      <span>SCORE: <span id="pac-score">0</span></span>
-      <span style="color:#FFD700;font-size:1rem;">● EAT THE PELLETS</span>
-      <span>LIVES: <span id="pac-lives">3</span></span>
-    </div>
-    <canvas id="pac-canvas" width="560" height="560"></canvas>
-    <div id="pac-message">Use arrow keys to move · Eat ★ power pellets to unlock portfolio sections</div>
-  </div>
-
-  <!-- SECTION PANEL -->
-  <div id="section-panel">
-    <span id="panel-close">✕</span>
-    <div id="panel-content"></div>
-  </div>
-
   <script>
-    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // ── PAC-MAN ICON ANIMATION ──
-    const iconCanvas = document.getElementById('pac-icon-canvas');
-    const ictx = iconCanvas.getContext('2d');
-    let iconMouth = 0.2, iconDir = 1;
-
-    function drawIcon() {
-      ictx.clearRect(0, 0, 52, 52);
-      ictx.fillStyle = '#000';
-      ictx.fillRect(0, 0, 52, 52);
-      iconMouth += iconDir * 0.05;
-      if (iconMouth > 0.4) iconDir = -1;
-      if (iconMouth < 0.02) iconDir = 1;
-      ictx.beginPath();
-      ictx.arc(26, 26, 18, iconMouth * Math.PI, (2 - iconMouth) * Math.PI);
-      ictx.lineTo(26, 26);
-      ictx.fillStyle = '#FFD700';
-      ictx.fill();
-      // dot
-      ictx.beginPath();
-      ictx.arc(46, 26, 3, 0, Math.PI * 2);
-      ictx.fillStyle = '#FFD700';
-      ictx.fill();
-      requestAnimationFrame(drawIcon);
-    }
-    drawIcon();
-
-    // ── PAC-MAN GAME ──
-    const CELL = 28, COLS = 20, ROWS = 20;
-    const W = COLS * CELL, H = ROWS * CELL;
-    const canvas = document.getElementById('pac-canvas');
-    canvas.width = W; canvas.height = H;
-    const ctx = canvas.getContext('2d');
-
-    // Portfolio sections content
-    const SECTIONS = [
-      {
-        title: '📁 Projects',
-        content: `
-          <ul>
-            <li><strong>Monte Carlo Options Pricer</strong> — GBM simulation for European options. <a href="https://github.com/AksharPandey/monte-carlo-options-pricer" target="_blank">GitHub →</a></li>
-            <li><strong>Chess Engine</strong> — Minimax + alpha-beta pruning, 1300 rating. <a href="https://github.com/AksharPandey/chess-bot-using-minmax-WIP" target="_blank">GitHub →</a></li>
-            <li><strong>Poker Hand Evaluator</strong> — Monte Carlo equity simulator, 99% accuracy. <a href="https://github.com/AksharPandey/texas-holdem-hand-simulator" target="_blank">GitHub →</a></li>
-            <li><strong>Stock Analysis Dashboard</strong> — TSLA/GME analysis with Plotly + yfinance.</li>
-          </ul>`
-      },
-      {
-        title: '💼 Experience',
-        content: `
-          <ul>
-            <li><strong>Finance & Banking Intern</strong> — Grey Sells (2024). Financial statements, KYC, forex.</li>
-            <li><strong>Design Head</strong> — F1 in Schools, DPS Dubai (2023–24). Aerodynamics, fluid dynamics.</li>
-            <li><strong>IBM Data Science Certification</strong> — edX / IBM (2024).</li>
-          </ul>`
-      },
-      {
-        title: '📬 Contact',
-        content: `
-          <p>Email: <a href="mailto:pandeyakshar4@gmail.com">pandeyakshar4@gmail.com</a></p>
-          <p>GitHub: <a href="https://github.com/AksharPandey" target="_blank">github.com/AksharPandey</a></p>
-          <p>LinkedIn: <a href="https://www.linkedin.com/in/AksharPandey" target="_blank">linkedin.com/in/AksharPandey</a></p>`
-      }
-    ];
-
-    // Maze: 0=empty, 1=wall, 2=dot, 3=power pellet
-    function buildMaze() {
-      const m = [];
-      for (let r = 0; r < ROWS; r++) {
-        m.push([]);
-        for (let c = 0; c < COLS; c++) {
-          // border walls
-          if (r === 0 || r === ROWS-1 || c === 0 || c === COLS-1) {
-            m[r].push(1);
-          } else {
-            m[r].push(2);
-          }
-        }
-      }
-      // internal walls
-      const walls = [
-        [2,2],[2,3],[2,4],[2,5],
-        [2,14],[2,15],[2,16],[2,17],
-        [4,2],[4,3],[4,8],[4,9],[4,10],[4,11],[4,16],[4,17],
-        [6,4],[6,5],[6,6],[6,13],[6,14],[6,15],
-        [8,2],[8,3],[8,4],[8,7],[8,8],[8,11],[8,12],[8,15],[8,16],[8,17],
-        [10,4],[10,5],[10,6],[10,13],[10,14],[10,15],
-        [12,2],[12,3],[12,8],[12,9],[12,10],[12,11],[12,16],[12,17],
-        [14,4],[14,5],[14,6],[14,13],[14,14],[14,15],
-        [16,2],[16,3],[16,4],[16,15],[16,16],[16,17],
-        [17,7],[17,8],[17,11],[17,12],
-      ];
-      walls.forEach(([r,c]) => { m[r][c] = 1; });
-      // power pellets at 4 spots
-      m[2][2] = 3; m[2][17] = 3; m[17][2] = 3; m[17][17] = 3;
-      // clear start area
-      m[10][10] = 0; m[10][9] = 0; m[9][10] = 0; m[9][9] = 0;
-      return m;
-    }
-
-    let maze, pac, ghosts, score, lives, gameOver, gameWon, pelletCount, powerTimer, sectionQueue, gameLoop;
-    let mouthAngle = 0.25, mouthDir = 1;
-
-    function initGame() {
-      maze = buildMaze();
-      pac = { x: 10, y: 10, dx: 0, dy: 0, nextDx: 1, nextDy: 0 };
-      ghosts = [
-        { x: 5, y: 5, dx: 1, dy: 0, color: '#FF0000' },
-        { x: 14, y: 5, dx: -1, dy: 0, color: '#FFB8FF' },
-        { x: 5, y: 14, dx: 0, dy: 1, color: '#00FFFF' },
-        { x: 14, y: 14, dx: 0, dy: -1, color: '#FFB852' },
-      ];
-      score = 0;
-      lives = 3;
-      gameOver = false;
-      gameWon = false;
-      powerTimer = 0;
-      sectionQueue = [0, 1, 2]; // projects, experience, contact
-      pelletCount = 0;
-      document.getElementById('pac-score').textContent = 0;
-      document.getElementById('pac-lives').textContent = 3;
-      document.getElementById('pac-message').textContent = 'Use arrow keys · Eat ★ to unlock portfolio sections';
-    }
-
-    function canMove(x, y) {
-      return x >= 0 && x < COLS && y >= 0 && y < ROWS && maze[y][x] !== 1;
-    }
-
-    function moveGhost(g) {
-      const dirs = [{dx:1,dy:0},{dx:-1,dy:0},{dx:0,dy:1},{dx:0,dy:-1}];
-      // try current direction first, then random
-      if (canMove(g.x + g.dx, g.y + g.dy)) {
-        g.x += g.dx; g.y += g.dy;
-      } else {
-        const shuffled = dirs.sort(() => Math.random() - 0.5);
-        for (const d of shuffled) {
-          if (canMove(g.x + d.dx, g.y + d.dy)) {
-            g.dx = d.dx; g.dy = d.dy;
-            g.x += g.dx; g.y += g.dy;
-            break;
-          }
-        }
-      }
-    }
-
-    function drawCell(r, c) {
-      const x = c * CELL, y = r * CELL;
-      if (maze[r][c] === 1) {
-        ctx.fillStyle = '#000';
-        ctx.fillRect(x, y, CELL, CELL);
-      } else if (maze[r][c] === 2) {
-        ctx.fillStyle = '#000';
-        ctx.fillRect(x, y, CELL, CELL);
-        ctx.beginPath();
-        ctx.arc(x + CELL/2, y + CELL/2, 2.5, 0, Math.PI*2);
-        ctx.fillStyle = '#FFD700';
-        ctx.fill();
-      } else if (maze[r][c] === 3) {
-        ctx.fillStyle = '#000';
-        ctx.fillRect(x, y, CELL, CELL);
-        ctx.font = `${CELL * 0.55}px serif`;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText('★', x + CELL/2, y + CELL/2);
-      } else {
-        ctx.fillStyle = '#000';
-        ctx.fillRect(x, y, CELL, CELL);
-      }
-    }
-
-    function drawPac() {
-      mouthAngle += mouthDir * 0.08;
-      if (mouthAngle > 0.35) mouthDir = -1;
-      if (mouthAngle < 0.02) mouthDir = 1;
-      const cx = pac.x * CELL + CELL/2, cy = pac.y * CELL + CELL/2;
-      const angle = Math.atan2(pac.dy, pac.dx);
-      ctx.beginPath();
-      ctx.arc(cx, cy, CELL/2 - 2, angle + mouthAngle * Math.PI, angle + (2 - mouthAngle) * Math.PI);
-      ctx.lineTo(cx, cy);
-      ctx.fillStyle = '#FFD700';
-      ctx.fill();
-      // eye
-      const ex = cx + Math.cos(angle - Math.PI/4) * (CELL/4);
-      const ey = cy + Math.sin(angle - Math.PI/4) * (CELL/4);
-      ctx.beginPath();
-      ctx.arc(ex, ey, 2, 0, Math.PI*2);
-      ctx.fillStyle = '#000';
-      ctx.fill();
-    }
-
-    function drawGhost(g) {
-      const cx = g.x * CELL + CELL/2, cy = g.y * CELL + CELL/2;
-      const r = CELL/2 - 2;
-      const col = powerTimer > 0 ? '#2244aa' : g.color;
-      ctx.fillStyle = col;
-      ctx.beginPath();
-      ctx.arc(cx, cy - 2, r, Math.PI, 0);
-      ctx.lineTo(cx + r, cy + r);
-      // wavy bottom
-      const segs = 4;
-      for (let i = segs; i >= 0; i--) {
-        const bx = (cx - r) + (i / segs) * (2 * r);
-        const by = cy + r - (i % 2 === 0 ? 4 : 0);
-        ctx.lineTo(bx, by);
-      }
-      ctx.closePath();
-      ctx.fill();
-      // eyes
-      [-5, 5].forEach(ox => {
-        ctx.beginPath();
-        ctx.arc(cx + ox, cy - 4, 3, 0, Math.PI*2);
-        ctx.fillStyle = '#fff';
-        ctx.fill();
-        ctx.beginPath();
-        ctx.arc(cx + ox + g.dx, cy - 4 + g.dy, 1.5, 0, Math.PI*2);
-        ctx.fillStyle = '#00f';
-        ctx.fill();
-      });
-    }
-
-    let frameCount = 0;
-    function tick() {
-      if (gameOver || gameWon) return;
-      frameCount++;
-
-      ctx.fillStyle = '#000';
-      ctx.fillRect(0, 0, W, H);
-
-      // draw maze
-      for (let r = 0; r < ROWS; r++) {
-        for (let c = 0; c < COLS; c++) {
-          drawCell(r, c);
-        }
-      }
-      ctx.strokeStyle = '#333';
-      ctx.lineWidth = 2;
-      ctx.strokeRect(1, 1, W-2, H-2);
-      // move pac every 6 frames
-      if (frameCount % 6 === 0) {
-        // try next direction first
-        if (canMove(pac.x + pac.nextDx, pac.y + pac.nextDy)) {
-          pac.dx = pac.nextDx; pac.dy = pac.nextDy;
-        }
-        if (canMove(pac.x + pac.dx, pac.y + pac.dy)) {
-          pac.x += pac.dx; pac.y += pac.dy;
-        }
-
-        // eat
-        const cell = maze[pac.y][pac.x];
-        if (cell === 2) {
-          maze[pac.y][pac.x] = 0;
-          score += 10;
-          pelletCount++;
-          document.getElementById('pac-score').textContent = score;
-        } else if (cell === 3) {
-          maze[pac.y][pac.x] = 0;
-          score += 50;
-          pelletCount++;
-          powerTimer = 120;
-          document.getElementById('pac-score').textContent = score;
-          // unlock next section
-          if (sectionQueue.length > 0) {
-            const idx = sectionQueue.shift();
-            setTimeout(() => showSection(idx), 300);
-          }
-        }
-      }
-
-      // move ghosts every 10 frames
-      if (frameCount % 10 === 0) {
-        ghosts.forEach(g => moveGhost(g));
-      }
-
-      if (powerTimer > 0) powerTimer--;
-
-      // check ghost collision
-      ghosts.forEach(g => {
-        if (g.x === pac.x && g.y === pac.y) {
-          if (powerTimer > 0) {
-            g.x = 10; g.y = 9; score += 200;
-            document.getElementById('pac-score').textContent = score;
-          } else {
-            lives--;
-            document.getElementById('pac-lives').textContent = lives;
-            pac.x = 10; pac.y = 10; pac.dx = 0; pac.dy = 0;
-            if (lives <= 0) {
-              gameOver = true;
-              document.getElementById('pac-message').textContent = 'GAME OVER — View all sections below ↓';
-              showAllSections();
-            }
-          }
-        }
-      });
-
-      drawPac();
-      ghosts.forEach(g => drawGhost(g));
-
-      // overlay text if powered up
-      if (powerTimer > 0) {
-        ctx.font = '12px JetBrains Mono';
-        ctx.fillStyle = '#FFD700';
-        ctx.textAlign = 'center';
-        ctx.fillText('POWER UP!', W/2, 20);
-      }
-    }
-
-    function showSection(idx) {
-      const s = SECTIONS[idx];
-      const panel = document.getElementById('section-panel');
-      const content = document.getElementById('panel-content');
-      content.innerHTML = `<div class="panel-section"><h2>${s.title}</h2>${s.content}</div>`;
-      panel.classList.add('active');
-    }
-
-    function showAllSections() {
-      const panel = document.getElementById('section-panel');
-      const content = document.getElementById('panel-content');
-      content.innerHTML = SECTIONS.map(s =>
-        `<div class="panel-section"><h2>${s.title}</h2>${s.content}</div>`
-      ).join('<hr style="border-color:#222;margin:24px 0"/>');
-      setTimeout(() => panel.classList.add('active'), 800);
-    }
-
-    // Controls
-    document.addEventListener('keydown', e => {
-      if (!document.getElementById('pac-overlay').classList.contains('active')) return;
-      const map = {
-        ArrowUp: {dx:0,dy:-1}, ArrowDown: {dx:0,dy:1},
-        ArrowLeft: {dx:-1,dy:0}, ArrowRight: {dx:1,dy:0}
-      };
-      if (map[e.key]) {
-        e.preventDefault();
-        pac.nextDx = map[e.key].dx;
-        pac.nextDy = map[e.key].dy;
-      }
-    });
-
-    // Launcher
-    document.getElementById('pac-launcher').addEventListener('click', () => {
-      document.getElementById('pac-overlay').classList.add('active');
-      initGame();
-      clearInterval(gameLoop);
-      gameLoop = setInterval(tick, 1000/30);
-    });
-
-    document.getElementById('pac-close').addEventListener('click', () => {
-      document.getElementById('pac-overlay').classList.remove('active');
-      clearInterval(gameLoop);
-    });
-
-    document.getElementById('panel-close').addEventListener('click', () => {
-      document.getElementById('section-panel').classList.remove('active');
-    });
   </script>
 
 </body>
