@@ -842,20 +842,23 @@
       localStorage.setItem('theme', newTheme);
       themeIcon.className = newTheme === 'light' ? 'ti ti-sun' : 'ti ti-moon';
     });
-    // --- H1 WORD ANIMATION ON SCROLL ---
     const h1Observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
           const words = e.target.querySelectorAll('.anim-word');
-          words.forEach(word => {
-            word.classList.remove('animate');
-            setTimeout(() => word.classList.add('animate'), 10);
+          words.forEach((word, index) => {
+            word.style.animation = 'none';
+            setTimeout(() => {
+              word.style.animation = `wordUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards`;
+              word.style.animationDelay = `${index * 0.13}s`;
+            }, 10);
           });
         }
       });
-    }, { threshold: 0.3 });
-    
-    h1Observer.observe(document.querySelector('h1'));
+    }, { threshold: 0.5 });
+
+    const h1 = document.querySelector('h1');
+    if (h1) h1Observer.observe(h1);
   </script>
 
 </body>
