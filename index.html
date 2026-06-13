@@ -273,7 +273,22 @@
     .divider { height: 1px; background: var(--border); margin: 0; }
 
     /* SECTION STYLES */
-    .section-wrap { padding: 64px 0; border-bottom: 1px solid var(--border); }
+        @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .section-wrap { 
+      padding: 64px 0; 
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(-45deg, 
+        rgba(232,130,74,0.02), 
+        rgba(196,160,245,0.02), 
+        rgba(107,207,143,0.02));
+      background-size: 400% 400%;
+      animation: gradient-shift 15s ease infinite;
+    }
     .section-wrap:last-of-type { border-bottom: none; }
 
     .section-label {
