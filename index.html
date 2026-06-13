@@ -198,6 +198,11 @@
 
     @keyframes fadeIn { to { opacity: 1; } }
 
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
     h1 {
       font-family: var(--sans);
       font-size: clamp(52px, 9vw, 84px);
@@ -206,6 +211,7 @@
       letter-spacing: -3px;
       color: var(--text);
       margin-bottom: 28px;
+      animation: heroFloat 3.5s ease-in-out infinite;
     }
     h1 .dim {
       color: var(--muted);
@@ -273,7 +279,7 @@
     .divider { height: 1px; background: var(--border); margin: 0; }
 
     /* SECTION STYLES */
-        @keyframes gradient-shift {
+    @keyframes gradient-shift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
@@ -283,9 +289,9 @@
       padding: 64px 0; 
       border-bottom: 1px solid var(--border);
       background: linear-gradient(-45deg, 
-        rgba(232,130,74,0.08), 
-        rgba(196,160,245,0.08), 
-        rgba(107,207,143,0.08));
+        rgba(232,130,74,0.02), 
+        rgba(196,160,245,0.02), 
+        rgba(107,207,143,0.02));
       background-size: 400% 400%;
       animation: gradient-shift 15s ease infinite;
     }
@@ -375,7 +381,7 @@
       border-color: var(--border-hover); 
       background: var(--surface2); 
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(232,130,74,0.12);
+      box-shadow: 0 8px 24px rgba(232,130,74,0.12), 0 0 60px rgba(232,130,74,0.06);
     }
     .project-card:hover::before { transform: scaleX(1); }
 
@@ -456,10 +462,15 @@
       background: var(--surface);
       border: 1px solid var(--border);
       color: var(--muted);
-      transition: all 0.15s;
-      cursor: default;
+      transition: all 0.2s;
+      cursor: pointer;
     }
-    .skill-chip:hover { color: var(--text); border-color: var(--border-hover); background: var(--surface2); }
+    .skill-chip:hover { 
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-dim);
+      transform: translateY(-2px);
+    }
 
     /* CONTACT */
     .contact-card {
