@@ -306,9 +306,14 @@
     .about-cell {
       background: var(--surface);
       padding: 18px 22px;
-      transition: background 0.15s;
+      transition: background 0.15s, box-shadow 0.2s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
-    .about-cell:hover { background: var(--surface2); }
+    .about-cell:hover { 
+      background: var(--surface2);
+      box-shadow: 0 8px 24px rgba(232,130,74,0.12);
+    }
+
     .about-cell-key {
       font-family: var(--mono);
       font-size: 10px;
@@ -335,10 +340,12 @@
       text-decoration: none;
       color: inherit;
       display: block;
-      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
+    
     .project-card::before {
       content: '';
       position: absolute;
@@ -349,7 +356,12 @@
       transform-origin: left;
       transition: transform 0.3s ease;
     }
-    .project-card:hover { border-color: var(--border-hover); background: var(--surface2); transform: translateY(-2px); }
+    .project-card:hover { 
+      border-color: var(--border-hover); 
+      background: var(--surface2); 
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(232,130,74,0.12);
+    }
     .project-card:hover::before { transform: scaleX(1); }
 
     .project-top {
@@ -599,7 +611,7 @@
   <div class="wrap">
 
     <div class="hero">
-      <div class="hero-eyebrow">Dubai, UAE &nbsp;·&nbsp; Developer & Analyst</div>
+      <div class="hero-eyebrow">Dubai, UAE &nbsp;·&nbsp;Incoming @ UvA, Econometrics and Data Science</div>
 
       <h1>
         <span class="anim-line"><span class="anim-word" style="animation-delay:0.15s;">Building</span></span>
