@@ -179,6 +179,9 @@
       display: inline-block;
       transform: translateY(110%);
       opacity: 0;
+    }
+    
+    .anim-word.animate {
       animation: wordUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     @keyframes wordUp {
@@ -839,6 +842,20 @@
       localStorage.setItem('theme', newTheme);
       themeIcon.className = newTheme === 'light' ? 'ti ti-sun' : 'ti ti-moon';
     });
+    // --- H1 WORD ANIMATION ON SCROLL ---
+    const h1Observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const words = e.target.querySelectorAll('.anim-word');
+          words.forEach(word => {
+            word.classList.remove('animate');
+            setTimeout(() => word.classList.add('animate'), 10);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    h1Observer.observe(document.querySelector('h1'));
   </script>
 
 </body>
