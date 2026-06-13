@@ -198,11 +198,6 @@
 
     @keyframes fadeIn { to { opacity: 1; } }
 
-    @keyframes heroFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
     h1 {
       font-family: var(--sans);
       font-size: clamp(52px, 9vw, 84px);
@@ -211,7 +206,6 @@
       letter-spacing: -3px;
       color: var(--text);
       margin-bottom: 28px;
-      animation: heroFloat 3.5s ease-in-out infinite;
     }
     h1 .dim {
       color: var(--muted);
@@ -279,7 +273,7 @@
     .divider { height: 1px; background: var(--border); margin: 0; }
 
     /* SECTION STYLES */
-    @keyframes gradient-shift {
+        @keyframes gradient-shift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
@@ -381,7 +375,7 @@
       border-color: var(--border-hover); 
       background: var(--surface2); 
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(232,130,74,0.12), 0 0 60px rgba(232,130,74,0.06);
+      box-shadow: 0 8px 24px rgba(232,130,74,0.12);
     }
     .project-card:hover::before { transform: scaleX(1); }
 
@@ -462,15 +456,10 @@
       background: var(--surface);
       border: 1px solid var(--border);
       color: var(--muted);
-      transition: all 0.2s;
-      cursor: pointer;
+      transition: all 0.15s;
+      cursor: default;
     }
-    .skill-chip:hover { 
-      color: var(--accent);
-      border-color: var(--accent);
-      background: var(--accent-dim);
-      transform: translateY(-2px);
-    }
+    .skill-chip:hover { color: var(--text); border-color: var(--border-hover); background: var(--surface2); }
 
     /* CONTACT */
     .contact-card {
