@@ -513,6 +513,44 @@
     .stagger.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay: 0.32s; }
     .stagger.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay: 0.40s; }
 
+    /* FIXED AMBIENT SIDEBARS */
+    .side-left, .side-right {
+      position: fixed;
+      bottom: 0;
+      width: 40px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+    .side-left { left: 40px; }
+    .side-right { right: 40px; }
+    .side-line { width: 1px; height: 90px; background: var(--border); }
+    .side-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      cursor: default;
+    }
+    .side-email {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      writing-mode: vertical-rl;
+      letter-spacing: 0.05em;
+      transition: color 0.15s, transform 0.15s;
+    }
+    .side-email:hover { color: var(--accent); transform: translateY(-4px); }
+
+    @media (max-width: 1100px) {
+      .side-left, .side-right { display: none; }
+    }
+
     @media (max-width: 600px) {
       nav .nav-links { display: none; }
       .about-grid { grid-template-columns: 1fr; }
@@ -522,6 +560,18 @@
   </style>
 </head>
 <body>
+
+  <!-- Left Fixed Sidebar -->
+  <div class="side-left">
+    <div class="side-num">INDEX // 01-05</div>
+    <div class="side-line"></div>
+  </div>
+
+  <!-- Right Fixed Sidebar -->
+  <div class="side-right">
+    <a href="mailto:pandeyakshar4@gmail.com" class="side-email">pandeyakshar4@gmail.com</a>
+    <div class="side-line"></div>
+  </div>
 
   <nav>
     <div class="wrap">
@@ -776,14 +826,11 @@
     const themeIcon = document.getElementById('theme-icon');
     const htmlEl = document.documentElement;
 
-    // Check localStorage or device system defaults
     const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
     
-    // Apply initial state
     htmlEl.setAttribute('data-theme', savedTheme);
     themeIcon.className = savedTheme === 'light' ? 'ti ti-sun' : 'ti ti-moon';
 
-    // Click cycle handler
     themeToggle.addEventListener('click', () => {
       const currentTheme = htmlEl.getAttribute('data-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
