@@ -9,74 +9,53 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
 
   <style>
-    :root {
-      --bg:         #09080a;
-      --bg2:        #0e0c10;
-      --surface:    #141118;
-      --surface2:   #1c1922;
-      --surface3:   #231f2b;
-      --border:     rgba(255,255,255,0.055);
-      --border-hi:  rgba(255,255,255,0.11);
-
-      --text:       #ede9f5;
-      --text-2:     #a399b8;
-      --text-3:     #5a5270;
-
-      --violet:     #9d7aff;
-      --violet-dim: rgba(157,122,255,0.12);
-      --amber:      #f0a458;
-      --amber-dim:  rgba(240,164,88,0.1);
-      --green:      #5ecf8a;
-      --green-dim:  rgba(94,207,138,0.1);
-      --rose:       #f06b7a;
-
-      --grad: linear-gradient(135deg, var(--violet), var(--amber));
-      --grad-text: linear-gradient(135deg, #b99cff 0%, #f0a458 100%);
-
-      --sans:  'Inter', sans-serif;
-      --display: 'Syne', sans-serif;
-      --mono:  'JetBrains Mono', monospace;
-
-      --radius:    8px;
-      --radius-lg: 14px;
-      --radius-xl: 20px;
-
-      --ease: cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-
-      --shadow-card: 0 0 0 1px var(--border), 0 4px 24px rgba(0,0,0,0.4);
-      --shadow-hi:   0 0 0 1px var(--border-hi), 0 8px 40px rgba(157,122,255,0.12), 0 2px 8px rgba(0,0,0,0.5);
-
-      --cursor-main: var(--violet);
-      --cursor-glow: rgba(157,122,255,0.35);
+    :root, html[data-theme="dark"] {
+      --bg: #0f0d0b;
+      --surface: #161310;
+      --surface2: #1e1a16;
+      --border: rgba(255,220,160,0.07);
+      --border-hover: rgba(255,220,160,0.14);
+      --text: #f0e8dc;
+      --muted: #7a6e62;
+      --accent: #e8824a;
+      --accent-dim: rgba(232,130,74,0.1);
+      --accent2: #f5c87a;
+      --green: #6bcf8f;
+      --green-dim: rgba(107,207,143,0.1);
+      --purple: #c4a0f5;
+      --purple-dim: rgba(196,160,245,0.1);
+      --sans: 'DM Sans', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+      --radius: 8px;
+      --radius-lg: 12px;
+      --noise-opacity: 0.07;
+      --grid-line: rgba(255,255,255,0.015);
+      --cursor-dot: #e8824a;
+      --cursor-follower-border: rgba(232, 130, 74, 0.28);
+      --cursor-follower-bg: rgba(232, 130, 74, 0.05);
+      --cursor-shadow: rgba(232, 130, 74, 0.35);
     }
-
     html[data-theme="light"] {
-      --bg:         #f5f2ff;
-      --bg2:        #ece8ff;
-      --surface:    #ffffff;
-      --surface2:   #f2eff8;
-      --surface3:   #e9e5f5;
-      --border:     rgba(0,0,0,0.07);
-      --border-hi:  rgba(0,0,0,0.13);
-
-      --text:       #1a1625;
-      --text-2:     #6d628a;
-      --text-3:     #b4aacc;
-
-      --violet:     #7c57f0;
-      --violet-dim: rgba(124,87,240,0.08);
-      --amber:      #d47f2a;
-      --amber-dim:  rgba(212,127,42,0.08);
-      --green:      #2a9c5c;
-      --green-dim:  rgba(42,156,92,0.08);
-
-      --grad-text: linear-gradient(135deg, #7c57f0 0%, #d47f2a 100%);
-      --shadow-card: 0 0 0 1px var(--border), 0 4px 24px rgba(0,0,0,0.06);
-      --shadow-hi:   0 0 0 1px var(--border-hi), 0 8px 40px rgba(124,87,240,0.1);
-
-      --cursor-main: var(--violet);
-      --cursor-glow: rgba(124,87,240,0.25);
+      --bg: #f4ebd9;
+      --surface: #ede2cd;
+      --surface2: #e0d4bc;
+      --border: rgba(0,0,0,0.3);
+      --border-hover: rgba(0,0,0,0.25);
+      --text: #2b2520;
+      --muted: #1a1510;
+      --accent: #d35f25;
+      --accent-dim: rgba(211,95,37,0.1);
+      --accent2: #c9933b;
+      --green: #379458;
+      --green-dim: rgba(55,148,88,0.1);
+      --purple: #8655cc;
+      --purple-dim: rgba(134,85,204,0.1);
+      --noise-opacity: 0.025;
+      --grid-line: rgba(0,0,0,0.04);
+      --cursor-dot: #8f3f15;
+      --cursor-follower-border: rgba(143, 63, 21, 0.25);
+      --cursor-follower-bg: rgba(143, 63, 21, 0.07);
+      --cursor-shadow: rgba(143, 63, 21, 0.22);
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
